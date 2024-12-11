@@ -14,7 +14,7 @@ Here's the polished version with the logo size optimized for better readability 
 ---
 
 ## ScreenShot
-<img src="https://github.com/user-attachments/assets/e94c1a9d-6024-41f1-8d7c-a4bf1e650516" alt="Toller Mini Logo" width="200" height="400" style="display: block; margin: 0 auto;" />  
+<img src="https://github.com/user-attachments/assets/e94c1a9d-6024-41f1-8d7c-a4bf1e650516" alt="Toller Mini Logo" width="250" height="400" style="display: block; margin: 0 auto;" />  
 
 
 
