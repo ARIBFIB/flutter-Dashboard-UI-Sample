@@ -4,7 +4,7 @@ Here's the polished version with the logo size optimized for better readability 
 
 # 🌟 Toller Mini: Flutter Dashboard UI Sample  
 
-<img src="https://github.com/user-attachments/assets/2a10ac5b-fe90-4f83-ab1f-e5e59e808584" alt="Toller Mini Logo" width="200" height="400" style="display: block; margin: 0 auto;" />  
+<img src="https://github.com/user-attachments/assets/2a10ac5b-fe90-4f83-ab1f-e5e59e808584" alt="Toller Mini Logo" width="200" style="display: block; margin: 0 auto;" />  
 
 ---
 
@@ -14,7 +14,7 @@ Here's the polished version with the logo size optimized for better readability 
 ---
 
 ## ScreenShot
-<img src="https://github.com/user-attachments/assets/e94c1a9d-6024-41f1-8d7c-a4bf1e650516" alt="Toller Mini Logo" width="300" height="800" style="display: block; margin: 0 auto;" />  
+<img src="https://github.com/user-attachments/assets/e94c1a9d-6024-41f1-8d7c-a4bf1e650516" alt="Toller Mini Logo" width="200" height="400" style="display: block; margin: 0 auto;" />  
 
 
 
