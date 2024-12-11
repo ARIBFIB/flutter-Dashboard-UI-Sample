@@ -13,6 +13,11 @@ Here's the polished version with the logo size optimized for better readability 
 
 ---
 
+## ScreenShot
+
+![Screenshot_20241211-205935](https://github.com/user-attachments/assets/e94c1a9d-6024-41f1-8d7c-a4bf1e650516)
+
+
 ## 🎨 Features  
 
 ✨ **Responsive Design**  
@@ -87,3 +92,158 @@ For any inquiries, suggestions, or feedback, feel free to reach out:
 🌐 Portfolio: [your-portfolio-link.com](https://your-portfolio-link.com)  
 
 ---
+Code 
+```
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'user_profile_page.dart';
+import 'how_to_use_page.dart';
+import 'add_device_page.dart';
+import 'manual_control_page.dart'; // Ensure this imports the correct ManualControlPage
+import 'scheduled_control_page.dart';
+import 'login_page.dart';
+import 'contact_us_page.dart'; // Import the new Contact Us page
+import 'package:shared_preferences/shared_preferences.dart';
+
+class MenuPage extends StatelessWidget {
+  final Function toggleTheme;
+
+  const MenuPage({super.key, required this.toggleTheme});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Menu'),
+      ),
+      body: ListView(
+        children: [
+          Divider(),
+          ListTile(
+            title: Text('User Profile'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const UserProfilePage()),
+              );
+            },
+          ),
+          Divider(),
+          ExpansionTile(
+            title: Text('Motor Control'),
+            leading: Icon(Icons.control_camera),
+            children: [
+              ListTile(
+                title: Text('Manual Control'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ManualControlPage()), // No 'const'
+                  );
+                },
+              ),
+              ListTile(
+                title: Text('Scheduled Control'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ScheduledControlPage()),
+                  );
+                },
+              ),
+            ],
+          ),
+          Divider(),
+          ListTile(
+            title: Text('Add a Device'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AddDevicePage()),
+              );
+            },
+            trailing: Icon(Icons.arrow_forward_ios),
+          ),
+          Divider(),
+          ListTile(
+            title: Text('How to Use/Install'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HowToUsePage()),
+              );
+            },
+            trailing: Icon(Icons.arrow_forward_ios),
+          ),
+          Divider(),
+          ListTile(
+            title: Text('Shop Now'),
+            onTap: () => _launchURL('https://shop.demetronics.com/'),
+            trailing: Icon(Icons.shop),
+          ),
+          Divider(),
+          ListTile(
+            title: Text('Contact Us'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ContactUsPage()),
+              );
+            },
+          ),
+          Divider(),
+          ListTile(
+            title: Text('Logout'),
+            onTap: () => _showLogoutDialog(context),
+            trailing: Icon(Icons.exit_to_app),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showLogoutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Confirm Logout'),
+          content: Text('Are you sure you want to logout?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () async {
+                final prefs = await SharedPreferences.getInstance();
+                await prefs.setBool('isLoggedIn', false);
+
+                Navigator.of(context).pop();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+              },
+              child: Text('Logout'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+}
+
+```
